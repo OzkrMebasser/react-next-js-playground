@@ -10,6 +10,8 @@ import { FaReact } from "react-icons/fa";
 import { RxExternalLink } from "react-icons/rx";
 import { GrDocumentText } from "react-icons/gr";
 import { MdOutlinePublishedWithChanges } from "react-icons/md";
+import { RiMenuUnfold3Fill, RiMenuUnfold4Fill } from "react-icons/ri";
+
 
 
 
@@ -47,12 +49,12 @@ const SidebarNav = () => {
         onClick={toggleSidebar}
         className="fixed top-4 right-4 z-50 p-2 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition-colors"
       >
-        {isSidebarOpen ? "Close" : "Open"}
+        {isSidebarOpen ? <RiMenuUnfold4Fill  className="w-8 h-8"/> : <RiMenuUnfold3Fill className="w-8 h-8"/>}
       </button>
 
       {/* Sidebar */}
       <div
-        className={`relative flex flex-col bg-white text-gray-700 h-auto max-w-[30rem] lg:w-[60rem] p-4 rounded-xl shadow-xl shadow-blue-gray-900/5 transition-transform duration-300 ease-in-out z-50 ${
+        className={`relative flex flex-col bg-white text-gray-700 h-auto max-w-[30rem] lg:w-[60rem] p-4 rounded-xl shadow-xl shadow-blue-gray-900/5 transition-transform duration-300 ease-in-out z-[49] ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

@@ -1,9 +1,10 @@
 import React from 'react';
+import ContainerGral from '@/app/components/ContainerGral';
 
 const UseState = () => {
   return (
     <>
-      <div className="absolute px-20 top-0 mx-auto w-full text-center">
+    <ContainerGral>
         <section className="p-6 ">
           <h1 className="text-4xl font-bold mb-4">¿Qué es el Hook useState?</h1>
           
@@ -43,7 +44,7 @@ const UseState = () => {
             Este Hook es fundamental para manejar el estado en componentes funcionales y proporciona una forma sencilla y efectiva de gestionar datos que cambian a lo largo del tiempo en una interfaz de usuario.
           </p>
         </section>
-      </div> 
+      </ContainerGral>
     </>
   );
 }

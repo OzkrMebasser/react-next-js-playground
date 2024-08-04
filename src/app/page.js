@@ -1,9 +1,10 @@
 import Image from "next/image";
+import ContainerGral from '@/app/components/ContainerGral';
 
 export default function Home() {
   return (
     <>
-    <div className="absolute px-20 top-0 mx-auto w-full text-center">
+    <ContainerGral>
     <section className="p-6 ">
           <h1 className="text-4xl font-bold mb-4">Guía Personal de React</h1>
           <p className="text-lg text-gray-700 mb-6">
@@ -37,7 +38,8 @@ export default function Home() {
             Navega por los enlaces en la barra lateral para acceder a cada sección de la guía. Cada página ofrece explicaciones detalladas, ejemplos prácticos y consejos útiles para facilitar tu aprendizaje. ¡Empieza tu viaje con React hoy mismo, mejora tus habilidades y lleva tus proyectos web al siguiente nivel!
           </p>
         </section>
-      </div>
+    </ContainerGral>
+    
     </>
   );
 }
