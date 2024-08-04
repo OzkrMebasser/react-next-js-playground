@@ -1,0 +1,242 @@
+"use client";
+import { useState, useEffect } from "react";
+import Counter from "./Counter";
+
+const StateExamples = () => {
+
+
+  // Ejemplo 2: Estado de una cadena de texto
+  // const [text, setText] = useState("Hello, world!");
+
+  // // Ejemplo 3: Estado de un arreglo
+  // const [items, setItems] = useState(["Apple", "Banana", "Cherry"]);
+
+  // // Ejemplo 4: Estado de un objeto
+  // const [user, setUser] = useState({ name: "John", age: 30 });
+
+  // // Ejemplo 5: Estado booleano
+  // const [isVisible, setIsVisible] = useState(true);
+
+  // // Ejemplo 6: Estado para un formulario con múltiples campos
+  // const [formData, setFormData] = useState({ name: "", email: "" });
+
+  // Ejemplo 7: Estado para la selección de un archivo
+  // const [file, setFile] = useState(null);
+
+  // Ejemplo 8: Estado para una lista de elementos editables
+  // const [editableItems, setEditableItems] = useState([
+  //   "Item 1",
+  //   "Item 2",
+  //   "Item 3",
+  // ]);
+  // const [editIndex, setEditIndex] = useState(null);
+  // const [newValue, setNewValue] = useState("");
+
+  // Ejemplo 9: Estado para mostrar/ocultar un componente basado en un intervalo
+  // const [intervalVisibility, setIntervalVisibility] = useState(true);
+
+  // Ejemplo 10: Estado para un temporizador
+  // const [seconds, setSeconds] = useState(0);
+
+  // Manejadores de eventos para cada estado
+  // const incrementCount = () => setCount(count + 1);
+  // const updateText = () => setText(text);
+  // const addItem = () => setItems([...items, "New Item"]);
+  // const updateUser = () => setUser({ ...user, age: user.age + 1 });
+  // const toggleVisibility = () => setIsVisible(!isVisible);
+
+  // const handleFormChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevData) => ({ ...prevData, [name]: value }));
+  // };
+
+  // const handleFileChange = (e) => {
+  //   setFile(e.target.files[0]);
+  // };
+
+  // const handleEdit = (index) => {
+  //   setEditIndex(index);
+  //   setNewValue(editableItems[index]);
+  // };
+
+  // const handleSave = () => {
+  //   const updatedItems = editableItems.map((item, index) =>
+  //     index === editIndex ? newValue : item
+  //   );
+  //   setEditableItems(updatedItems);
+  //   setEditIndex(null);
+  // };
+
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setIntervalVisibility((prev) => !prev);
+  //   }, 5000); // Alterna la visibilidad cada segundo
+
+  //   return () => clearInterval(intervalId); // Limpieza del intervalo al desmontar
+  // }, []);
+
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setSeconds((prev) => prev + 1);
+  //   }, 5000); // Incrementa los segundos cada segundo
+
+  //   return () => clearInterval(intervalId); // Limpieza del intervalo al desmontar
+  // }, []);
+
+  return (
+    <div className="p-6 max-w-lg mx-auto bg-white rounded-lg shadow-md space-y-6">
+      <h2 className="text-2xl font-bold mb-4">useState Examples</h2>
+
+      {/* Ejemplo 1 */}
+    <Counter/>
+
+      {/* Ejemplo 2 */}
+      <div className="p-4 bg-gray-100 rounded-md shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Text</h3>
+        <p className="text-lg mb-2">{text}</p>
+        <input
+          type="text"
+          placeholder="Text to change"
+          onChange={(e) => setText(e.target.value)}
+          className="p-4 py-2 bg-white text-gray-400 rounded hover:bg-white transition"
+        />
+        <div>
+         
+        </div>
+      </div>
+      {/* Ejemplo 3 */}
+      <div className="p-4 bg-gray-100 rounded-md shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Items List</h3>
+        <ul className="list-disc pl-5 mb-2">
+          {items.map((item, index) => (
+            <li key={index} className="text-lg">
+              {item}
+            </li>
+          ))}
+        </ul>
+        <button
+          onClick={addItem}
+          className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition"
+        >
+          Add Item
+        </button>
+      </div>
+
+      {/* Ejemplo 4 */}
+      <div className="p-4 bg-gray-100 rounded-md shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">User Information</h3>
+        <p className="text-lg mb-2">Name: {user.name}</p>
+        <p className="text-lg mb-2">Age: {user.age}</p>
+        <button
+          onClick={updateUser}
+          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+        >
+          Increase Age
+        </button>
+      </div>
+
+      {/* Ejemplo 5 */}
+      <div className="p-4 bg-gray-100 rounded-md shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Visibility</h3>
+        {isVisible && <p className="text-lg mb-2">This content is visible.</p>}
+        <button
+          onClick={toggleVisibility}
+          className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition"
+        >
+          Toggle Visibility
+        </button>
+      </div>
+
+      {/* Ejemplo 6: Formulario con múltiples campos */}
+      <div className="p-4 bg-gray-100 rounded-md shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Form Data</h3>
+        <form className="space-y-4">
+          <div>
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleFormChange}
+              className="border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleFormChange}
+              className="border p-2 rounded"
+            />
+          </div>
+          <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+            Submit
+          </button>
+        </form>
+      </div>
+
+      {/* Ejemplo 7: Selección de archivo */}
+      <div className="p-4 bg-gray-100 rounded-md shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">File Upload</h3>
+        <input
+          type="file"
+          onChange={handleFileChange}
+          className="border p-2 rounded"
+        />
+        {file && <p className="mt-2">Selected File: {file.name}</p>}
+      </div>
+
+      {/* Ejemplo 8: Lista editable */}
+      <div className="p-4 bg-gray-100 rounded-md shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Editable List</h3>
+        <ul className="list-disc pl-5 mb-2">
+          {editableItems.map((item, index) => (
+            <li key={index} className="flex items-center space-x-2">
+              <span>{item}</span>
+              <button
+                onClick={() => handleEdit(index)}
+                className="text-blue-500"
+              >
+                Edit
+              </button>
+            </li>
+          ))}
+        </ul>
+        {editIndex !== null && (
+          <div className="space-y-2">
+            <input
+              type="text"
+              value={newValue}
+              onChange={(e) => setNewValue(e.target.value)}
+              className="border p-2 rounded"
+            />
+            <button
+              onClick={handleSave}
+              className="bg-green-500 text-white p-2 rounded"
+            >
+              Save
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Ejemplo 9: Visibilidad basada en intervalo */}
+      <div className="p-4 bg-gray-100 rounded-md shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Interval Visibility</h3>
+        {/* {intervalVisibility && <p className="text-lg mb-2">This content toggles every second.</p>} */}
+      </div>
+
+      {/* Ejemplo 10: Temporizador */}
+      <div className="p-4 bg-gray-100 rounded-md shadow-sm">
+        <h3 className="text-xl font-semibold mb-2">Timer</h3>
+        <p className="text-lg mb-2">Timer: {seconds} seconds</p>
+      </div>
+    </div>
+  );
+};
+
+export default StateExamples;
