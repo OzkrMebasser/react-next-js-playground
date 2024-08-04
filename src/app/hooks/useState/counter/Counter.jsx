@@ -1,8 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
 
-
-
 const Counter = () => {
   // Ejemplo 1: Estado de un contador
   const [count, setCount] = useState(0);
@@ -12,8 +10,13 @@ const Counter = () => {
   }
   return (
     <>
+   
       <div className="p-4 bg-[#DDEBFA] rounded-md shadow-sm">
-        <h3 className="text-xl  mb-2 font-bold">Counter <br /><span className="font-light">example #1</span></h3>
+        
+        <h3 className="text-xl  mb-2 font-bold">
+          Counter <br />
+          <span className="font-light">example #1</span>
+        </h3>
         <p className="text-lg mb-2">Count: {count}</p>
         <button
           onClick={incrementCounter}
@@ -22,16 +25,14 @@ const Counter = () => {
           Increment
         </button>
       </div>
-      <div className="">
+  
       <Image
-              src="../counter-useState.svg"
-              alt="useState counter"
-              
-              width={1200}
-              height={300}
-
-            />
-      </div>
+        src="../../counter-useState.svg"
+        alt="useState counter"
+        width={1500}
+        height={300}
+      />
+ 
     </>
   );
 };
